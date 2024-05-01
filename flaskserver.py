@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request
 from flask_socketio import SocketIO, emit
 
-app = Flask(__name__, static_folder='template', static_url_path='')
+app = Flask(__name__, static_folder='templates', static_url_path='')
 socketio = SocketIO(app)
 
 users = {}
