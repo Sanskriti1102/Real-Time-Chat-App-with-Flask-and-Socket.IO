@@ -1,0 +1,63 @@
+<!-- 2. Index.html -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Chat App</title>
+    <link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.mi
+n.css" /> 
+    <link rel="stylesheet" href="bootstrap.min.css" />
+    <style>
+        body {
+            padding-top: 5rem;
+        }
+
+        .chat-message {
+            margin-bottom: 1rem;
+        }
+
+        .chat-message .name {
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <div id="messages"></div>
+                <form id="message-form">
+                    <div class="input-group mt-3"> <input type="text" class="form-control" id="message-input"
+                            placeholder="Type
+your
+message here..." autocomplete="off" /> <button class="btn btn-primary" type="submit">Send</button>
+                    </div>
+            </div>
+            </form>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <script src="https://cdn.socket.io/4.5.0/socket.io.min.js"
+crossorigin="anonymous"></script>
+    <script src="jquery.min.js"></script>
+    <script src="socket.io.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var socket = io();
+            $('#message-form').submit(function (e) {
+                e.preventDefault();
+                var message = $('#message-input').val();
+                socket.emit('message', { text: message });
+                $('#message-input').val("");
+            });
+            socket.on('message', function (data) {
+                var messageHtml = '<div class="chat-message"><span class="name">' + data.name + ':</span><span class="text">' + data.text + '</span></div>';
+                $('#messages').append(messageHtml);
+            });
+        });
+    </script>
+
+</body>
+
+</html>
