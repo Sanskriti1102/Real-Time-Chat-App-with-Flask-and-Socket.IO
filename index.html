@@ -1,12 +1,11 @@
-<!-- 2. Index.html -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat App</title>
-    <link rel="stylesheet"
-href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.mi
-n.css" /> 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="bootstrap.min.css" />
     <style>
         body {
@@ -29,17 +28,17 @@ n.css" />
             <div class="col-md-8 offset-md-2">
                 <div id="messages"></div>
                 <form id="message-form">
-                    <div class="input-group mt-3"> <input type="text" class="form-control" id="message-input"
-                            placeholder="Type
-your
-message here..." autocomplete="off" /> <button class="btn btn-primary" type="submit">Send</button>
+                    <div class="input-group mt-3">
+                        <input type="text" class="form-control" id="message-input"
+                            placeholder="Type your message here..." autocomplete="off" />
+                        <button class="btn btn-primary" type="submit">Send</button>
                     </div>
+                </form>
             </div>
-            </form>
         </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <script src="https://cdn.socket.io/4.5.0/socket.io.min.js"
-crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.socket.io/4.5.0/socket.io.min.js" crossorigin="anonymous"></script>
     <script src="jquery.min.js"></script>
     <script src="socket.io.min.js"></script>
     <script>
