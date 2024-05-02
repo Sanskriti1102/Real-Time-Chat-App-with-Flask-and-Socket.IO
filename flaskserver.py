@@ -1,14 +1,14 @@
-from flask import Flask, render_template, request
+from flask import Flask, send_file,request
 from flask_socketio import SocketIO, emit
 
-app = Flask(__name__, static_folder='static', static_url_path='')
+app = Flask(__name__)
 socketio = SocketIO(app)
 
 users = {}
 
 @app.route("/")
 def index():
-    return app.send_static_file('index.html')
+    return send_file('index.html')
 
 @socketio.on('connect')
 def handle_connect():
